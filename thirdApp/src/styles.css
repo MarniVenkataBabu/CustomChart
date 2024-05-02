@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+.table{
+    width: 70%;
+    height:50%;
+    margin: 50px 30px 60px 80px;
+   text-decoration: solid;
+   background-color: aqua;
+   color: black; 
+}
+.form{
+    width:20%;
+    height:20%;
+    margin-left:300px;
+}
+.form:hover{
+    background-color: aquamarine;
+    text-shadow: 2px;
+}
