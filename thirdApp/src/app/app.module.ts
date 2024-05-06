@@ -6,9 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocialLoginModule } from 'angularx-social-login';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserService } from './shared/service/user.service';
+import { rxStompServiceFactory } from './rx-stomp-service-factory';
+import { RxStompService } from './rx-stomp.service';
 import { ChannelService } from './shared/service/channel.service';
 import { MessageService } from './shared/service/message.service';
+import { UserService } from './shared/service/user.service';
+import { socialAuthServiceFactory } from './socialAuthServiceFactory';
+import { SocialAuthService } from 'angularx-social-login';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +31,13 @@ import { MessageService } from './shared/service/message.service';
     UserService,
     ChannelService,
     MessageService,
+    {
+      provide:RxStompService,
+      useFactory: rxStompServiceFactory,
+    },{
+      provide: SocialAuthService,
+      useFactory: socialAuthServiceFactory
+    }
   ],
   bootstrap: [AppComponent]
 })
