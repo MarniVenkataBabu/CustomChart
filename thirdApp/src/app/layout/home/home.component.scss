@@ -59,3 +59,56 @@
 	width: 100%;
 	padding: 5px;
 }
+.main-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo-container img {
+    height: 80px;
+}
+
+.receiver-header {
+    font-size: 18px;
+}
+
+.user-header button {
+    margin-right: 10px;
+}
+
+.chat-table {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 80px); /* Adjust height as needed */
+}
+
+.user-list-col, .wt-justify {
+    padding: 10px;
+    border-right: 1px solid #ccc;
+}
+
+.cell-border {
+    border-bottom: 1px solid #ccc;
+}
+
+.user-list-col {
+    width: 25%; /* Adjust width as needed */
+}
+
+.user-container {
+    /* Add custom styles for user list container */
+}
+
+.message-wrapper {
+    /* Add custom styles for message wrapper */
+}
+
