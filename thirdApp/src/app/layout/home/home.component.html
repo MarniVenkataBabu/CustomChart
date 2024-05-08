@@ -1,1 +1,24 @@
-<h2>Home Component Loaded...</h2>
+<div class="main-container">
+    <div class="header-container">
+        <div class="logo-container">
+            <img src="assets/img/logo.jpg" height="80px">
+        </div>
+        <div class="receiver-header" *ngIf="receiver !== null && receiver !== undefined && receiver !== ''">
+            Talk to {{receiver}}
+        </div>
+        <div class="user-header">
+            <button>Welcome, {{username}}</button>
+            <button (click)="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="chat-table">
+        <div class="user-list-col wt-justify cell-border" [style.vertical-align]="'top'" style="width: 25%;">
+            <wt-userlist [username]="username" class="user-container" (receiverUpdated)="onReceiverChange($event)">
+            </wt-userlist>
+        </div>
+        <div class="wt-justify cell-border" style="width: 75%;">
+            <wt-messages [username]="username" class="message-wrapper"></wt-messages>
+        </div>
+    </div>
+</div>
