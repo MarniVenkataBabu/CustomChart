@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../shared/service/user.service';
-import { RxStompService } from '@stomp/rx-stomp';
+import { RxStompService } from ''../../rx-stomp.service';
 import { SocialAuthService } from 'angularx-social-login';
 
 @Component({
