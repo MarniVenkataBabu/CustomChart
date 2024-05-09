@@ -13,11 +13,13 @@ import { MessageService } from './shared/service/message.service';
 import { UserService } from './shared/service/user.service';
 import { socialAuthServiceFactory } from './socialAuthServiceFactory';
 import { SocialAuthService } from 'angularx-social-login';
+import { NotificationComponent } from './layout/notification/notification.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

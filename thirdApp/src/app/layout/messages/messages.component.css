@@ -1,25 +1,45 @@
 .message-col {
-	vertical-align: top;
-}
-
-.cell-border {
+	width: 100%;
+	min-height: 480px;
+  }
+  
+  .message-container {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+  }
+  
+  .message-item {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+  }
+  
+  .message-item:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .message-input {
+	width: 85%;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+  }
+  
+  button {
+	width: 13%;
+	padding: 5px 10px;
+	margin-left: 5px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+  }
+  
+  button:hover {
+	background-color: #0056b3;
+  }
+  .cell-border {
 	border: 2px solid #bbb; padding: 5px;
 }
-
-.message-item {
-	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-	border-radius: 5px;
-	margin-top: 5px;
-	margin-left: 10px;
-}
-
-.message-container {
-	overflow-y: auto;
-	height: 480px;
-}
-
-.message-input {
-	font-size: 24px;
-	font-family: verdana;
-	color: #202080;
-}
+  

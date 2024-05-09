@@ -1,114 +1,40 @@
-.hand {
-	cursor: pointer;
-}
-
 .main-container {
-	height: 100%;
-}
-
-.main-container {
-	width: 100%;
-	height: 200px;
-}
-
-.header-container {
-	width: 100%;
-	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-	border-radius: 5px;
-}
-
-.user-header {
-	font-size: 1.3vw;
-	font-family: verdana;
-	color: #202080;
-}
-
-.receiver-header {
-	background: rgba(150,150,150, 0.3);
-	font-size: 1.3vw;
-	font-family: verdana;
-	color: #202080;
-	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-	border-radius: 5px;
-	padding: 10px;
-}
-
-.chat-table {
-	margin-top: 10px;
-}
-
-.user-list-col {
-	min-width: 100px;
-}
-
-::ng-deep mat-grid-tile.wt-justify .mat-figure {
-    align-items: initial;  /*vertical alignment*/
-    justify-content: initial;  /*horizontal alignment*/
-}
-
-.user-container {
-	width: 100%;
-	padding: 5px;
-}
-
-.cell-border {
-	border: 2px solid #bbb; padding: 5px;
-}
-
-.message-wrapper {
-	width: 100%;
-	padding: 5px;
-}
-.main-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-}
-
-.logo-container img {
-    height: 80px;
-}
-
-.receiver-header {
-    font-size: 18px;
-}
-
-.user-header button {
-    margin-right: 10px;
-}
-
-.chat-table {
-    display: flex;
-    width: 100%;
-    height: calc(100% - 80px); /* Adjust height as needed */
-}
-
-.user-list-col, .wt-justify {
-    padding: 10px;
-    border-right: 1px solid #ccc;
-}
-
-.cell-border {
-    border-bottom: 1px solid #ccc;
-}
-
-.user-list-col {
-    width: 25%; /* Adjust width as needed */
-}
-
-.user-container {
-    /* Add custom styles for user list container */
-}
-
-.message-wrapper {
-    /* Add custom styles for message wrapper */
-}
-
+	display: flex;
+	flex-direction: column;
+  }
+  
+  .header-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+  }
+  
+  .logo-container img {
+	position: absolute;
+	left: 0;
+	height: 80px;
+  }
+  
+  .receiver-header {
+	font-size: 20px;
+  }
+  
+  .user-header button {
+	margin-left: 10px;
+  }
+  
+  .chat-table {
+	display: flex;
+  }
+  
+  .user-list-col {
+	flex: 1;
+	border-right: 1px solid #ccc;
+	padding-right: 10px;
+  }
+  
+  .message-wrapper {
+	flex: 5;
+  }
+  

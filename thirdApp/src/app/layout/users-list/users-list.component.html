@@ -1,1 +1,14 @@
-<h2>User-List Coponent Loaded...</h2>
+<div class="custom-list">
+    <div *ngFor="let user of getOtherUsers()"
+         class="custom-list-item"
+         [ngClass]="getUserItemClass(user)"
+         (click)="startChatWithUser(user)">
+      <div class="list-icon">
+        <i class="material-icons">person</i>
+      </div>
+      <div class="list-content">
+        <h4>{{ user.username }}</h4>
+      </div>
+    </div>
+  </div>
+  

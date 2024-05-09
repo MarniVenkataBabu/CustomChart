@@ -1,12 +1,15 @@
-<div id="messages">
-    <button class="btn btn-primary" (click)="onSendMessage()">
-      Send Test Message
-    </button>
-    <h2>Received messages</h2>
-    <ol>
-      <!-- we will use Angular binding to populate list of messages -->
-      <li class="message" *ngFor="let message of receivedMessages">
-        
-      </li>
-    </ol>
-  </div>
+<div style="width: 100%; min-height: 480px;" class="message-col">
+  <ul id="msg-container" class="message-container">
+    <li *ngFor="let message of filteredMessages" class="message-item"
+      [style.background]="message.sender === username ? 'rgba(80,150,220, 0.4)':'rgba(150,150,150, 0.3)'">
+      <i class="material-icons">chat</i> <!-- Or replace 'material-icons' with your preferred icon library -->
+      <h4><b>{{message.sender === username ? 'You': message.sender}}</b>: {{message.content}}</h4>
+    </li>
+  </ul>
+</div>
+
+<div style="width:100%; height: 40px;">
+  <input type="text" placeholder="New message" [disabled]="channel === null || channel === undefined"
+    class="message-input" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()">
+  <button [disabled]="channel === null || channel === undefined" (click)="sendMessage()">Send</button>
+</div>

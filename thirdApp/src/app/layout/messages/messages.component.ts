@@ -1,34 +1,60 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 import { RxStompService } from '../../rx-stomp.service';
-import { Message } from '@stomp/stompjs';
+import { Message } from '../../shared/model/message';
 import { Subscription } from 'rxjs';
+import { MessageService } from '../../shared/service/message.service';
+import { ChannelService } from '../../shared/service/channel.service';
 
 @Component({
-  selector: 'app-messages',
+  selector: 'wt-messages',
   templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css'],
+  styleUrls: ['./messages.component.css']
 })
-export class MessagesComponent implements OnInit, OnDestroy {
-  receivedMessages: string[] = [];
-  // @ts-ignore, to suppress warning related to being undefined
-  private topicSubscription: Subscription;
+export class MessagesComponent implements OnInit {
 
-  constructor(private rxStompService: RxStompService) {}
+   filteredMessages: Array<Message> = [];
+   newMessage!: string;
+   channel!: string;
+
+  @Input() username!: string;
+
+  constructor(private stompService: RxStompService,
+    private messageService: MessageService,
+    private channelService: ChannelService) { }
 
   ngOnInit() {
-    this.topicSubscription = this.rxStompService
-      .watch('/topic/demo')
-      .subscribe((message: Message) => {
-        this.receivedMessages.push(message.body);
+    this.channelService.getChannel().subscribe(channel => {
+      this.channel = channel;
+      this.filterMessages();
+    });
+
+    this.messageService.getMessages().subscribe(messages => {
+      this.filterMessages();
+    });
+  }
+
+  sendMessage() {
+    if (this.newMessage) {
+      this.stompService.publish({
+        destination: '/app/messages', body:
+          JSON.stringify({
+            'channel': this.channel,
+            'sender': this.username,
+            'content': this.newMessage
+          })
       });
+      this.newMessage = '';
+      this.scrollToBottom();
+    }
   }
 
-  ngOnDestroy() {
-    this.topicSubscription.unsubscribe();
+  filterMessages() {
+    this.filteredMessages = this.messageService.filterMessages(this.channel);
+    this.scrollToBottom();
   }
 
-  onSendMessage() {
-    const message = `Message generated at ${new Date()}`;
-    this.rxStompService.publish({ destination: '/topic/demo', body: message });
+  scrollToBottom() {
+    const msgContainer = document.getElementById('msg-container')!;
+    msgContainer.scrollTop = msgContainer.scrollHeight;
   }
 }

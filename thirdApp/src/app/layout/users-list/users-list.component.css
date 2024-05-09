@@ -1,21 +1,28 @@
-.user-item {
-	box-shadow: inset 0 0 5px rgba(80,80,80, 0.2);
+.custom-list {
+	margin: 0;
+	padding: 0;
+  }
+  
+  .custom-list-item {
+	display: flex;
+	align-items: center;
+	padding: 10px;
 	cursor: pointer;
-	background: rgba(80,80,80, 0.2);
-}
-
-.current-chat-user {
-	background: rgba(170,170,170, 0.2);
-}
-
-.new-user {
-	background: rgba(89, 204, 97, 0.5);
-}
-
-.new-message {
-	background: rgba(232,157,27, 0.6);
-}
-
-.disconnected-user {
-	opacity: 0.4;
-}
+  }
+  
+  .list-icon {
+	margin-right: 10px;
+  }
+  
+  .list-icon i {
+	font-size: 24px; /* Adjust icon size */
+  }
+  
+  .list-content {
+	flex: 1;
+  }
+  
+  .list-content h4 {
+	margin: 0;
+  }
+  

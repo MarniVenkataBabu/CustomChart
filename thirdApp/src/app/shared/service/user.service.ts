@@ -23,4 +23,8 @@ export class UserService {
     findUsers() {
         return this.http.get(settings.baseUrl + '/listUsers', { headers: headers });
     }
+
+    signUp(user:User):any{
+        return this.http.post(settings.baseUrl+ '/signup', user, { headers: headers });
+    }
 }
