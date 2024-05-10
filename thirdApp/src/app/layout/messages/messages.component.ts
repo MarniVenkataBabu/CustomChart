@@ -34,6 +34,7 @@ export class MessagesComponent implements OnInit {
   }
 
   sendMessage() {
+    console.log("send Message called in Message Service "+ this.newMessage);
     if (this.newMessage) {
       this.stompService.publish({
         destination: '/app/messages', body:
@@ -43,6 +44,7 @@ export class MessagesComponent implements OnInit {
             'content': this.newMessage
           })
       });
+      console.log('Channel '+ this.channel);
       this.newMessage = '';
       this.scrollToBottom();
     }

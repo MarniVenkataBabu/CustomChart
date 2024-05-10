@@ -1,3 +1,4 @@
+<div class="body">
 <div class="login-container">
     <div class="login-logo">
       <img src="assets/img/logo.png" height="100%" alt="Logo">
@@ -10,21 +11,22 @@
     <div class="login-input-container">
       <input class="login-input" type="text" placeholder="Username" [(ngModel)]="username"
         (keyup)="($event.keyCode == 13) && connect(username)">
-      <button class="login-button" (click)="connect(username)">Connect</button>
+      <button class="login-button connect-button" (click)="connect(username)">Connect</button>
     </div>
     <div class="login-header">
       <div style="font: italic bold 18px/30px Georgia, serif;">Or Login with</div>
     </div>
     <div class="social-login">
       <button (click)="signInWithGoogle()" class="social-button">
-        <img src="assets/img/social-google.png" height="100%" alt="Google">
+        <img src="assets/img/social-google.png" height="25%" alt="Google">
       </button>
       <button (click)="signInWithFB()" class="social-button">
-        <img src="assets/img/social-fb.png" height="100%" alt="Facebook">
+        <img src="assets/img/social-fb.png" height="25%" alt="Facebook">
       </button>
     </div>
     <div class="error-message" *ngIf="message !== undefined && message !== null">
       {{message}}
     </div>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
   </div>
-  
+</div>

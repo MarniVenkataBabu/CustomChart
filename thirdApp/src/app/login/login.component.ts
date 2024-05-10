@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../shared/service/user.service';
 import {
-    SocialAuthService, FacebookLoginProvider,
-    GoogleLoginProvider, SocialUser
+     FacebookLoginProvider,
+    GoogleLoginProvider, SocialUser, SocialAuthService,
 } from 'angularx-social-login';
 import { HttpErrorResponse } from '@angular/common/http';
 import { User } from '../shared/model/user';
@@ -25,10 +25,21 @@ export class LoginComponent implements OnInit {
         private authService: SocialAuthService) { }
 
         ngOnInit() {
-            this.authService.authState.subscribe((user):any => {
-              this.user = user;
-            });
-          }
+            console.log(this.authService);
+            if (this.authService && this.authService.authState) {
+                this.authService.authState.subscribe(
+                    (user): any => {
+                        this.user = user;
+                    },
+                    (error) => {
+                        console.error('Error subscribing to authState:', error);
+                    }
+                );
+            } else {
+                console.error('AuthService or authState is not properly initialized.');
+            }
+        }
+        
 
     connect(username: string) {
         this.clearData();
@@ -53,6 +64,7 @@ export class LoginComponent implements OnInit {
     }
 
     signInWithGoogle(): void {
+        console.log("Sign in called in login.ts");
         this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
     }
 
@@ -89,4 +101,11 @@ export class LoginComponent implements OnInit {
         event.preventDefault();
         this.connect(this.username);
     }
+     onSignIn(googleUser:any) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      }
 }

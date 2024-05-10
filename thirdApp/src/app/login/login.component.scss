@@ -53,4 +53,15 @@
 	margin-top: 20px;
 	color: red;
   }
+  .connect-button {
+	transform: none;
+	z-index: 1;
+  }
   
+  .connect-button .elementor-flip-box__layer {
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+  }
+  .body{
+    background: url('https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg');
+}
